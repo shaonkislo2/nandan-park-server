@@ -43,6 +43,10 @@ app.get('/', (req, res) => {
   res.send('Running my Nandan Park Server !!')
 })
 
+app.get('/hello', (req ,res) =>{
+    res.send ('hello hello hello ')
+})
+
 app.listen(port, () => {
     console.log('Running Surver on port',  port)
 })
