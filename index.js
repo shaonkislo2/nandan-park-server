@@ -19,16 +19,18 @@ const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology:
 async function run(){
     try{
         await client.connect(); 
-        const database = client.db('health_care');
-        const serviceCollection = database.collection('services')
+        const database = client.db('nandan_park');
+        const rideCollection = database.collection('rides')
 
-        // GET Services API
-        
-        app.get('/services', async(req, res) =>{
-            const cursor = serviceCollection.find({})
-            const services = await cursor.toArray();
-            res.send(services);
+        // GET Rides API
+
+        app.get('/rides', async(req, res) =>{
+            const cursor = rideCollection.find({})
+            const rides = await cursor.toArray();
+            res.send(rides);
         })
+
+        
     }
     finally{
         // await client.close()
